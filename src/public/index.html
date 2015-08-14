@@ -1,0 +1,350 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>家庭厨房</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <!--<script src="js/vendor/modernizr-2.8.3.min.js"></script>-->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+
+        <ul class="tabs">
+
+            <li>
+                <input type="radio" name="tabs" id="tab1" checked />
+                <label for="tab1">预约厨房</label>
+
+                <div id="tab-content1" class="tab-content">
+                    <div class="tab-main-content ">
+
+                        <div class="container-fluid">
+
+                            <form method="post" name="appointment">
+
+
+
+                                <div class="row">
+
+                                    <div class="col-xs-5 col-sm-5 col-md-5">
+                                        选择厨房
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7 col-md-7">
+                                        <select name="kitchen_type" class="form-control">
+                                            <option  value="1">厨房1</option>
+                                            <option  value="2">厨房2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row" >
+                                    <div class="col-xs-5 col-sm-5 col-md-5">
+                                        <img width="100%" src="img/kitchin1.png">
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7 col-md-7 kitchen_desc kitchen_desc1">
+                                        可容纳人数:3人<br/>
+                                        单次费用:100元<br/>
+                                        地址:一号楼103<br/>
+                                        联系电话:1245364363<br/>
+                                    </div>
+
+                                    <div class="col-xs-7 col-sm-7 col-md-7 kitchen_desc kitchen_desc2 hidden">
+                                        可容纳人数:4人<br/>
+                                        单次费用:200元<br/>
+                                        地址:一号楼104<br/>
+                                        联系电话:834364363<br/>
+                                    </div>
+
+                                </div>
+
+                                <hr/>
+
+                                <div class="row">
+                                    <div class="col-xs-5 col-sm-5 col-md-5">
+                                        预约日期：
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7 col-md-7">
+                                        <select name="appointment_date" class="form-control" id="appointment_date">
+                                            <option >1</option>
+                                            <option >2</option>
+                                            <option >3</option>
+                                            <option >4</option>
+                                            <option >5</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-xs-5 col-sm-5 col-md-5">
+                                        预约时间：
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7 col-md-7">
+                                        <select name="appointment_time" class="form-control">
+                                            <option value="1">早上 7:00-10:00</option>
+                                            <option value="2">中午 12:00-2:00</option>
+                                            <option value="3">晚上 18:00-21:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr/>
+
+                                <div class="row">
+                                    <div class="col-xs-5 col-sm-5 col-md-5">
+                                        联系电话：
+                                    </div>
+                                    <div class="col-xs-7 col-sm-7 col-md-7">
+                                        <input type="text" name="phonenum" class="form-control"/>
+                                    </div>
+                                </div>
+
+                                <hr/>
+
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12" >
+                                        <center>
+                                            <button name="submit" id="make-appointment" type="submit" class="btn btn-primary">提交预约</button>
+                                        </center>
+                                    </div>
+                                </div>
+
+
+                            </form>
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+            <li>
+
+                <input type="radio" name="tabs" id="tab2" />
+                <label for="tab2">我的预约</label>
+                <div id="tab-content2" class="tab-content">
+
+                    <div class="tab-main-content">
+
+
+                        <div class="container-fluid">
+
+                            <div class="row templete hidden" >
+                                <div class="col-xs-2 col-sm-3 apt-date"></div>
+                                <div class="col-xs-6 col-sm-6 apt-time"></div>
+                                <div class="col-xs-4 col-sm-3 ">
+                                    <button class="btn btn-default btn-sm apt-action">已完成</button>
+                                </div>
+                            </div>
+
+
+
+                            <div class="row" >
+                                <div class="col-xs-12">一号厨房</div>
+                                <div class="row" >
+                                    <div class="kitchen1 col-xs-offset-1 col-xs-11"></div>
+                                    <div class="no-apt1 col-xs-8 col-xs-offset-2">暂无任何预约信息</div>
+                                </div>
+                            </div>
+
+
+
+
+                            <hr/>
+
+                            <div class="row" >
+                                <div class="col-xs-12">二号厨房</div>
+                                <div class="row" >
+                                    <div class="kitchen2 col-xs-offset-1 col-xs-11"></div>
+                                    <div class="no-apt2 col-xs-8 col-xs-offset-2">暂无任何预约信息</div>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+        </ul>
+
+        <script src="js/vendor/zepto-1.1.6.js"></script>
+
+        <!--<script src="js/plugins.js"></script>-->
+        <script src="js/main.js"></script>
+
+
+        <script type="text/javascript">
+
+
+
+            $(function(){
+                $("#appointment_date").dateAppointment();
+
+                $("#make-appointment").click(function(e){
+                    e.stopPropagation();
+
+                    if(! /^\d{11}$/.test( $("input[name='phonenum']").val() )  ){
+                        alert("联系方式应该为11位数字!");
+                        return;
+                    }
+
+                    $.post("/~api/appointments", $("form[name='appointment']").serialize(), function(ret){
+                        if( ret.errno == 0 ){
+                            window.location = "/appointmentok.html#" + $("form[name='appointment']").serialize()
+                        }else{
+                            alert( ret.message );
+                        }
+                    })
+
+                    return false;
+                })
+
+
+                $("#tab1").on("click", function(e){
+
+                    var phone = $("input[name='phonenum']");
+                    $.get("/~api/user/info", function(ret){
+                        if( ret.errno == 0 ){
+                            phone.val( ret.data.phonenum) ;
+                        }
+                    })
+
+                });
+
+
+                $("#tab2").on("click", function(e) {
+                    $.get("/~api/appointments", function (ret) {
+                        if (ret.errno == 0) {
+
+                            $(".kitchen1").html("");
+                            $(".kitchen2").html("");
+
+                            var tl = ["早上7:00-10:00","中午12:00-2:00","晚上18:00-21:00"];
+                            var tm = [7, 12, 18];
+                            var now = new Date();
+
+                            for(var i= 0,len=ret.data.length;i<len;i++){
+                                var template = $(".templete").clone()
+                                var item = ret.data[i];
+
+                                var date = new Date(item.appointment_date);
+
+                                var deadline = date.getTime() + tm[item.appointment_time-1] * 60 * 60 * 1000;
+                                var status = ""
+                                var canCancel = true
+                                if( now.getTime() >= deadline ){
+                                    status = "已完成"
+                                    canCancel = false
+                                }else{
+                                    status = "取消预约"
+                                }
+
+
+                                template.find(".apt-date").text( (date.getMonth()+1) + "/" + date.getDate() );
+                                template.find(".apt-time").text( tl[item.appointment_time-1] );
+
+                                var action = template.find(".apt-action").text(status);
+
+                                action.attr("data-apt-id", item.id);
+                                action.attr("data-kitchen-type", item.kitchen_type);
+
+                                if(canCancel){
+                                    action.on("click", function(e){
+
+                                        var aptId = $(this).attr("data-apt-id");
+                                        var kitchen_type = $(this).attr("data-kitchen-type");
+                                        var item = $(this).parent().parent()
+
+
+                                        if(confirm("确定取消预约吗？") ){
+                                            $.ajax({
+                                                url: "/~api/appointments/"+ aptId,
+                                                type: "DELETE",
+                                                success : function(data){
+                                                    alert(data.message)
+                                                    if( data.errno == 0 ){
+
+//                                                        $("div[data-apt-id=")
+
+                                                        if( item.parent().children().length == 1){
+                                                            $(".no-apt" + kitchen_type).removeClass("hidden");
+                                                        }
+                                                        item.remove()
+                                                    }
+                                                },
+                                                error : function(xhr, type){
+                                                    alert("Ajax error");
+                                                }
+                                            });
+
+
+
+                                        }
+                                    })
+                                }
+
+                                template.removeClass("hidden").removeClass("templete");
+
+                                $(".kitchen"+item.kitchen_type).append(template);
+
+                                $(".no-apt"+item.kitchen_type).addClass("hidden");
+
+                            }
+                        }
+
+                    });
+                });
+
+
+                var hash = window.location.hash;
+                if( hash == "#myappointments" ){
+                    $("#tab2").trigger("click");
+                }else{
+                    $("#tab1").trigger("click");
+                }
+
+
+                $("select[name='kitchen_type']").on("change", function(v){
+                    $(".kitchen_desc").addClass("hidden");
+                    $(".kitchen_desc" + this.value ).removeClass("hidden");
+
+                })
+
+            });
+        </script>
+
+
+    </body>
+</html>

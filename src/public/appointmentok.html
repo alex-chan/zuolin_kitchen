@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>家庭厨房</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <!--<script src="js/vendor/modernizr-2.8.3.min.js"></script>-->
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+
+<div class="container-fluid" id="appointmentok">
+
+    <div class="row">
+        <img src="img/ok.png"/>
+    </div>
+    <div class="row">
+        <h1>恭喜您! 预约成功！</h1>
+    </div>
+    <div class="row" id="aptok-hint">
+        恭喜你已经成功预约 <span id="appointment_date"></span>  <span id="appointment_time"></span>的 <span id="kitchen_type"></span> 家庭厨房，稍后会有工作人员进来来电确认，请留意
+    </div>
+
+    <div class="row">
+        <button class="btn btn-default" id="myappointments">查看我的预约信息</button>
+    </div>
+
+</div>
+
+
+<script src="js/vendor/zepto-1.1.6.js"></script>
+
+<!--<script src="js/main.js"></script>-->
+
+
+
+<script type="text/javascript">
+
+
+    $(function(){
+        $.unserialize = function(serializedString){
+            var str = decodeURI(serializedString);
+            var pairs = str.split('&');
+            var obj = {}, p, idx, val;
+            for (var i=0, n=pairs.length; i < n; i++) {
+                p = pairs[i].split('=');
+                idx = p[0];
+
+                if (idx.indexOf("[]") == (idx.length - 2)) {
+                    // Eh um vetor
+                    var ind = idx.substring(0, idx.length-2)
+                    if (obj[ind] === undefined) {
+                        obj[ind] = [];
+                    }
+                    obj[ind].push(p[1]);
+                }
+                else {
+                    obj[idx] = p[1];
+                }
+            }
+            return obj;
+        };
+
+        var hash = window.location.hash;
+        var hasharr = hash.split("#")
+        if( hasharr.length == 2 ){
+            var dictstr = hasharr[1];
+            var apt = $.unserialize( decodeURIComponent(dictstr) );
+
+            $("#appointment_date").text( apt.appointment_date );
+
+            var tl = ["早上7:00-10:00","中午12:00-2:00","晚上18:00-21:00"]
+
+            $("#appointment_time").text( tl[apt.appointment_time-1] );
+            var l = ["一号","二号"]
+            $("#kitchen_type").text( l[apt.kitchen_type-1] );
+
+        }
+
+
+        $("#myappointments").on("click", function(){
+            window.location.href = "/#myappointments";
+        });
+
+
+
+    });
+</script>
+
+
+</body>
+</html>

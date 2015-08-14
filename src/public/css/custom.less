@@ -1,0 +1,165 @@
+@background: #efeff5;
+@white: #ffffff;
+@tabs-base-color: #f0f0f0;
+
+body {
+    //padding: 20px;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-family: Lato;
+    //color: #fff;
+    background: @white;
+}
+
+.tabs {
+    width: 100% ;
+    float: none;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    margin: 0px 0 0 0px;
+    text-align: left;
+    li {
+        float: left;
+        display: block;
+        width: 50%;
+    }
+    input[type="radio"] {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    label {
+        display: block;
+        padding: 12px 19px;
+        border-radius: 2px 2px 0 0;
+        font-size: 20px;
+        font-weight: normal;
+        text-transform: uppercase;
+        background: @white;
+        cursor: pointer;
+        position: relative;
+        top: 4px;
+        text-align: center;
+        //&:hover {
+        //    background: @white;
+        //}
+
+        //@include transition(all 0.2s ease-in-out);
+
+    }
+    .tab-content {
+        z-index: 2;
+        display: none;
+        overflow: hidden;
+        width: 100%;
+
+
+        font-size: 16px;
+        line-height: 30px;
+
+        position: absolute;
+        top: 50px;
+        left: 0;
+        background: @white;
+
+        .tab-main-content {
+            margin: 20px 5px 50px 5px;
+            //
+            //select {
+            //    width: 100%;
+            //    height: 34px;
+            //    padding: 6px 12px;
+            //}
+            .row {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .kitchen_desc {
+                font-size: 14px;
+                line-height: 20px;
+                //vertical-align: 20%;
+                //vertical-align: text-top;
+            }
+
+
+            #appointment_date, #appointment_time {
+                .btn {
+                    padding: 10px 2px;
+                }
+
+            }
+
+
+        }
+
+
+
+
+    }
+
+    .tab-content2 {
+        .kitchen1, .kitchen2 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    //The Magic
+    [id^="tab"] + label {
+        background: darken(@white, 10);
+        top: 0;
+    }
+
+    [id^="tab"]:checked + label {
+        //top: 0;
+        //padding-top: 17px;
+        background: @white;
+    }
+    [id^="tab"]:checked ~ [id^="tab-content"] {
+        display: block;
+    }
+}
+
+
+
+
+
+p.link {
+    clear: both;
+    margin: 380px 0 0 15px;
+    a {
+        text-transform: uppercase;
+        text-decoration: none;
+        display: inline-block;
+        color: #fff;
+        padding: 5px 10px;
+        margin: 0 5px;
+        background-color: darken(@white, 15);
+
+        &:hover {
+            background-color: darken(@white, 20);
+        }
+
+        //@include transition(all 0.2s ease-in);
+    }
+}
+
+
+
+#appointmentok {
+    text-align: center;
+    margin-top: 20px;
+
+
+
+    #aptok-hint{
+        color: #c0c0c0;
+    }
+    .row {
+        margin: 10px 0;
+    }
+
+}
