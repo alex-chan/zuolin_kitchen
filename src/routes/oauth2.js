@@ -104,13 +104,20 @@ var saveUserInfo = function(req, res, next){
 
             data = JSON.parse(data);
 
-            req.session['user'] = {
-                user_id: data.response.id,
-                name: data.response.nickName,
-                phonenum: data.response.phones[0] || "用户未填"
+            if( !!data && !!data.response && !!data.response.id) {
+
+                req.session['user'] = {
+                    user_id: data.response.id,
+                    name: data.response.nickName,
+                    phonenum: data.response.phones[0]
+                }
+
+                res.redirect("/")
+            }else{
+                tokenManager.remove(token);
+                res.send("server error");
             }
 
-            res.redirect("/")
 
         } else {
             //console.log("get token error");
